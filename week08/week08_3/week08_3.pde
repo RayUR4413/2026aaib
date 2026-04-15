@@ -1,0 +1,23 @@
+//week08-3 會飛的氣球
+//修改自week08-2會跟著mouse移動的氣球
+void setup() {
+  size(500, 500);
+  img = loadImage("balloon.png");
+}
+PImage img;
+float x, y;
+float s = 0.1;
+  void draw() {
+  background(255);//白色背景
+  if (mousePressed) {
+    s*=1.1;
+    image(img, mouseX-(96*s)/2, mouseY-(132*s), 96*s, 132*s);
+  } else {
+    image(img, x, y, 96*s, 132*s);
+    y--;
+  }
+}
+void mouseReleased() {
+  x = mouseX-(96*s)/2;
+  y = mouseY-(132*s);
+}
